@@ -1,7 +1,10 @@
 import API from './api'
 import { useQuery } from 'react-query'
+import { Select } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export default function Destinations({setResort}){
+    const [selectedResort, setSelectedResort] = useState(null)
     const destinations = useQuery("destinations", () => 
     API.get("/destinations")
   .then(res => res.data.destinations), {staleTime: Infinity})
@@ -11,17 +14,22 @@ export default function Destinations({setResort}){
       console.log(destinations.error)
       return null
   }
-console.log(destinations)
+
+  const changeHandler = (value) => {
+    setSelectedResort(value)
+    setResort(value)
+  }
+
   return destinations.isLoading
   ?(
       <h3>Loading...</h3>
   )
   : (
-      <ul>
+    <Select placeholder='Select Resort' onChange={(e)=>changeHandler(e.target.value)} value={selectedResort}>
           {destinations?.data.map(resort => (
-              <li key={resort.id} onClick={()=>setResort(resort)}>{resort.name}</li>
+            <option value={resort.id}>{resort.name}</option>
           ))}
-      </ul>
+    </Select>
   )
 
 }

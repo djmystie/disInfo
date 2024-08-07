@@ -2,15 +2,22 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #242424;
+  background-color: #dae7f7;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --primaryColor: #00263f;
+  --secondaryColor: #2ecc71;
+  --boxBackground: #6ca4f3;
+  --lightBackground: #bbd2f1;
+  --highlightBackground: #759bce;
+  --dimmed: #485360;
+  --borderColor: #044bae;
+  --font-size: 16px;
 }
 
 a {
@@ -25,7 +32,6 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }

@@ -5,6 +5,7 @@ import {
 import { ReactQueryDevtools } from "react-query/devtools";
 import { useState, useEffect } from 'react'
 import './App.css'
+import Login from './Login/Login'
 import Header from './Header'
 import Destinations from './destinations'
 import Resort from './Resort/Resort';
@@ -13,6 +14,7 @@ import Park from './Park/Park'
 const queryClient = new QueryClient()
 
 function App() {
+  let [user, setUser] = useState(null)
   let [resort, setResort] = useState(null)
   let [park, setPark] = useState(null)
   let [type, setType] = useState("ATTRACTION")
@@ -35,16 +37,20 @@ function App() {
     setLevel(newLevel)
   }
 
+  // if(!user){
+  //   return (
+  //     <Login />
+  //   )
+  // }
+
+  console.log(park)
   return (
   <QueryClientProvider client={queryClient}>
-    <Header goBack={goBack} title={title} level={level} />
-    {resort
-        ? park 
-        ? <Park resort={resort} park={park} type={type} setPark={setPark} />
-        : <Resort resort={resort.slug} setPark={setPark} />
-        : <Destinations setResort={setResort} />}
+    {/* <Header goBack={goBack} title={title} level={level} /> */}
+    <Destinations setResort={setResort} />
+    {resort ? <Resort resort={resort} setPark={setPark} /> : null} 
+    {resort && park ? <Park resort={resort} park={park} type={type} setPark={setPark} /> : null }
     <ReactQueryDevtools initialIsOpen={false} />
-   
   </QueryClientProvider>
   )
 }
