@@ -3,7 +3,7 @@ import {
   QueryClientProvider,
   } from 'react-query'
 import { ReactQueryDevtools } from "react-query/devtools";
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Header from './Header'
 import Destinations from './destinations'
@@ -19,6 +19,10 @@ function App() {
   let [title, setTitle] = useState("All Resorts")
   let [level, setLevel] = useState(null)
 
+  useEffect(()=>{
+    setTitle(park ? park.name : resort ? resort.name : "All Resorts")
+    setLevel(park ? "park" : resort ? "resort" : null)
+  },[resort, park])
 
   const goBack = () => {
     let newLevel = null
