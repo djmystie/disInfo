@@ -16,7 +16,7 @@
   margin-bottom: .5em;
 }
 .queueImage {
-  background-image: url('./queue.png');
+  background-image: url('./assets/queue.png');
   background-size: cover;
   width: 100%;
   height: 240px;
