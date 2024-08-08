@@ -5,7 +5,14 @@
     justify-content: center;
     align-items: center;
     color: var(--primaryColor);
-
+    background-color: var(--mainBackground);
+}
+    .register {
+      background-color: var(--mainBackground);
+      height: 100vh;
+      padding: .5em;
+      text-align: center;
+    }
 .loginForm {
     min-width: 20em;
     max-width: 90wv;
@@ -42,4 +49,3 @@
   button:hover{
     background-color: var(--highlightBackground);
   }
-}

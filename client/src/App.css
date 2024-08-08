@@ -4,27 +4,31 @@
   margin: 2px 0;
   background-color: moccasin;
 }
-ul {
+.mainContainer {
+  background-color: var(--mainBackground);
+  padding: 1em 0 0 0;
   width: 100%;
-  list-style-type: none;
-  padding: 0; 
-  margin: 0;
+  height: 100vh;
+  text-align: center;
 }
-li {
-  width: calc(100vw - 20px);
-  padding: 10px;
-  margin: 2px 0;
-  background-color:papayawhip;
-  cursor: pointer;
+.heading {
+  color: var(--primaryColor);
+  margin-bottom: .5em;
 }
-li:hover {
-  background-color:peachpuff;
+.queueImage {
+  background-image: url('./queue.png');
+  background-size: cover;
+  width: 100%;
+  height: 240px;
+  position: absolute;
+  /* top: calc( 50% - 120px); */
 }
 header {
+  z-index: 500;
   width: 100%;
-  padding: .5em 0;
-  background-color:black;
-  color: white;
+  padding: 0 .5em .5em .5em;
+  background-color: var(--primaryColor);
+  /* color: white; */
   display:flex;
   justify-content: space-between;
   font-size: 1.5em;
@@ -38,6 +42,11 @@ header {
   .pointer {
       cursor: pointer;
   }
+}
+.innerContainer {
+  padding: .5em;
+  position:relative;
+  top: 270px;
 }
 .attraction {
   display: flex;

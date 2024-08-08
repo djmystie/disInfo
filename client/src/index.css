@@ -10,8 +10,10 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --primaryColor: #00263f;
+  /* --mainBackground: #224f4f; */
+  --primaryColor: #224f4f;
   --secondaryColor: #2ecc71;
+  --mainBackground: #a7bcbc;
   --boxBackground: #6ca4f3;
   --lightBackground: #bbd2f1;
   --highlightBackground: #759bce;
@@ -31,9 +33,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -71,4 +70,48 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+.readex-pro-bold {
+  font-family: "Readex Pro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "HEXP" 0;
+}
+
+.zain-extralight {
+  font-family: "Zain", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.zain-light {
+  font-family: "Zain", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.zain-regular {
+  font-family: "Zain", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.zain-bold {
+  font-family: "Zain", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.zain-extrabold {
+  font-family: "Zain", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.zain-black {
+  font-family: "Zain", sans-serif;
+  font-weight: 900;
+  font-style: normal;
 }

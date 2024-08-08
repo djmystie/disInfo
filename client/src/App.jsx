@@ -10,11 +10,13 @@ import Header from './Header'
 import Destinations from './destinations'
 import Resort from './Resort/Resort';
 import Park from './Park/Park'
+import Home from './Home'
 
 const queryClient = new QueryClient()
 
 function App() {
-  let [user, setUser] = useState(null)
+  let [showLogin, setShowLogin] = useState({show:false, page:'login'})
+  let [user, setUser] = useState(false)
   let [resort, setResort] = useState(null)
   let [park, setPark] = useState(null)
   let [type, setType] = useState("ATTRACTION")
@@ -36,17 +38,26 @@ function App() {
     }
     setLevel(newLevel)
   }
+  console.log(user)
+  if(!user){
+    return (
+      <>
+      <Header setShowLogin={setShowLogin} user={user} setUser={setUser} />
+      {showLogin.show
+        ? <Login page={showLogin.page} setShowLogin={setShowLogin} />
+        : <Home setShowLogin={setShowLogin} />
+      }
+      </>
+    )
+  }
 
-  // if(!user){
-  //   return (
-  //     <Login />
-  //   )
-  // }
 
-  console.log(park)
+ 
+
   return (
   <QueryClientProvider client={queryClient}>
-    {/* <Header goBack={goBack} title={title} level={level} /> */}
+       <Header setShowLogin={setShowLogin} setUser={setUser} />
+   
     <Destinations setResort={setResort} />
     {resort ? <Resort resort={resort} setPark={setPark} /> : null} 
     {resort && park ? <Park resort={resort} park={park} type={type} setPark={setPark} /> : null }

@@ -1,69 +1,49 @@
-// import './login.css'
+import './login.css'
 import { useState } from 'react'
 import { 
     Input, 
     InputGroup, 
     InputRightElement, 
+    InputLeftAddon,
     Button, 
     Text, 
-    Card, 
-    CardHeader, 
-    CardBody, 
-    CardFooter 
+    Center, 
+    Stack 
 } from '@chakra-ui/react'
 
-const Login = () => {
-    const [showRegister, setShowRegister] = useState(false)
-    const [show, setShow] = useState(false)
-    const handleClick = () => setShow(!show)
-    if(showRegister){
+const Login = ({page, setShowLogin}) => {
+    if(page === "register"){
         return (
-        <Card align="center">
-            <CardHeader>
-                <Text fontSize='3xl'>Welcome!</Text>
-            </CardHeader>
-            <CardBody>
-                Please enter the following to register:
-            
-            <form>
-                <Input placeholder='Email' />
-                <Input placeholder='Repeat Email' />
-                <InputGroup size='md'>
-        <Input
-          pr='4.5rem'
-          type={show ? 'text' : 'password'}
-          placeholder='Enter password'
-        />
-        <InputRightElement width='4.5rem'>
-          <Button h='1.75rem' size='sm' onClick={handleClick}>
-            {show ? 'Hide' : 'Show'}
-          </Button>
-        </InputRightElement>
-      </InputGroup>
-                <Input placeholder='Repeat Password' />
-            </form>
-            <Button>Register</Button>
-            <br/>
-            <Button onClick={()=>setShowRegister(false)}>Already Registered?</Button>
-            </CardBody>
-        </Card>
+            <div className="register">
+                <Text fontSize='3xl'>Welcome to the club!</Text>
+                <Text mb={9} fontSize='1xl'>Please enter your info below to join.</Text>
+                <Stack spacing={3} width={350}>
+                    <Input size='lg' placeholder='Email Address' variant='filled' />
+                    <Input size='lg' type="tel" placeholder='PhoneNumber' variant='filled' />
+                    <Input size='lg' type='password' placeholder='Choose a password' variant='filled' />
+                    <Input size='lg' type='rPassword' placeholder='Repeat your password' variant='filled' />   
+                 
+                </Stack>
+                <Button mb={9} size='lg'>Register</Button>
+                <br/>
+                <Button size='sm'  onClick={()=>setShowLogin({show:true, page:'login'})}>Already Registered?</Button>
+            </div>
         )
     }
 
     return (
-        <div className="loginContainer">
-        <div className="loginForm">
-            <h1>Welcome!</h1>
-            <form>
-                <input type="text" placeholder="User Name" />
-                <br/>
-                <input type="password" placeholder="Password" />
-            </form>
-            <button>Login</button>
-            <br/>
-            <button onClick={()=>setShowRegister(true)}>Need to register?</button>
-        </div>
-        </div>
+        <div className="register">
+        <Text fontSize='3xl'>Welcome to the club!</Text>
+        <Text mb={9} fontSize='1xl'>Please sign in below.</Text>
+        <Stack spacing={3} width={350}>
+            <Input size='lg' placeholder='Email Address' variant='filled' />
+            <Input size='lg' type='password' placeholder='Password' variant='filled' />
+         
+        </Stack>
+        <Button mb={9} size='lg'>Sign In</Button>
+        <br/>
+        <Button size='sm'  onClick={()=>setShowLogin({show:true, page:'register'})}>Need to Register?</Button>
+    </div>
     )
 }
 
